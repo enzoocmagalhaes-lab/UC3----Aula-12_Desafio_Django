@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore os três jogos da trilogia The Witcher.">
+  <title>{% block title %}The Witcher | Catálogo de jogos{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jogos/estilo.css' %}">
+</head>
+<body>
+  <a class="visually-hidden-focusable skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <nav class="container nav-shell" aria-label="Navegação principal">
+      <a class="brand" href="{% url 'jogos:home' %}"><span class="brand-ring" aria-hidden="true"></span>THE WITCHER<span class="brand-label">CATÁLOGO DE JOGOS</span></a>
+      <div class="nav-links">
+        <a href="{% url 'jogos:home' %}">Início</a>
+        <a href="{% url 'jogos:lista' %}">Catálogo</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'jogos:criar' %}">Adicionar jogo</a>
+          <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="btn btn-sm btn-outline-light" type="submit">Sair</button></form>
+        {% else %}
+          <a class="btn btn-sm btn-outline-light" href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+      </div>
+    </nav>
+  </header>
+  <main id="conteudo" class="container main-content">
+    {% for message in messages %}<div class="alert alert-{{ message.tags }}" role="status">{{ message }}</div>{% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>THE WITCHER <span class="footer-muted">/ Três jogos. Uma evolução.</span></span><span>Projeto acadêmico · Aula 12 · Django</span></div></footer>
+</body>
+</html>

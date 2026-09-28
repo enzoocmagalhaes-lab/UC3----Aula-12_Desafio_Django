@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy"><p class="eyebrow">ARQUIVO DO LOBO BRANCO · 2007—2015</p><h1>Três jogos.<br>Escolhas difíceis.<br><em>Um legado.</em></h1><p class="hero-description">Conheça a trilogia de Geralt de Rívia: o que cada jogo faz bem, onde encontra seus limites e como a CD PROJEKT RED evoluiu entre uma aventura e outra.</p><a class="btn btn-gold btn-lg" href="{% url 'jogos:lista' %}">Explorar a trilogia <span aria-hidden="true">→</span></a></div>
+  <div class="hero-art" aria-hidden="true"><div class="sword sword-one"></div><div class="sword sword-two"></div><span class="hero-sigil">W</span><span class="ring-caption">AÇO PARA HOMENS · PRATA PARA MONSTROS</span></div>
+</section>
+<section class="facts" aria-label="Sobre a coleção"><div><strong>{{ total_jogos|stringformat:'02d' }}</strong><span>jogos no catálogo</span></div><div><strong>2007 → 2015</strong><span>da estreia ao mundo aberto</span></div><div><strong>CD PROJEKT RED</strong><span>desenvolvedora da trilogia</span></div></section>
+<section class="journey"><p class="eyebrow">COMO A SÉRIE EVOLUIU</p><div class="row g-4"><div class="col-md-4"><h2>01 / Identidade</h2><p class="muted">The Witcher apresenta a fantasia sombria e as escolhas moralmente ambíguas que sustentam a série.</p></div><div class="col-md-4"><h2>02 / Consequência</h2><p class="muted">Assassins of Kings aposta na intriga política e em caminhos narrativos muito diferentes.</p></div><div class="col-md-4"><h2>03 / Escala</h2><p class="muted">Wild Hunt leva essas histórias a um mundo aberto, com a busca por Ciri como centro emocional.</p></div></div></section>
+<p class="editorial-note">Catálogo acadêmico independente. As fichas apresentam análise editorial e fontes identificadas. As avaliações consideram o lançamento original e distinguem melhorias de edições posteriores.</p>
+{% endblock %}

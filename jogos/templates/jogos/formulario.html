@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}{{ titulo_pagina }} | The Witcher{% endblock %}
+{% block content %}
+<div class="form-shell"><p class="eyebrow">GERENCIAR CATÁLOGO</p><h1>{{ titulo_pagina }}</h1><p class="muted">Preencha todos os campos para salvar as informações do jogo.</p><form method="post" class="panel edit-form">{% csrf_token %}{{ form.as_p }}<div class="d-flex flex-wrap gap-2 mt-4"><button class="btn btn-gold" type="submit">Salvar jogo</button><a class="btn btn-outline-light" href="{% if jogo %}{{ jogo.get_absolute_url }}{% else %}{% url 'jogos:lista' %}{% endif %}">Cancelar</a></div></form></div>
+{% endblock %}

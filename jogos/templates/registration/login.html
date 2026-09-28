@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Entrar | The Witcher{% endblock %}
+{% block content %}
+<div class="form-shell narrow"><p class="eyebrow">ACESSO AO CATÁLOGO</p><h1>Bem-vindo de volta.</h1><p class="muted">Entre para adicionar, editar ou excluir jogos.</p><form method="post" class="panel login-form">{% csrf_token %}{{ form.as_p }}<input type="hidden" name="next" value="{{ next }}"><button type="submit" class="btn btn-gold w-100">Entrar</button></form><p class="muted mt-3 small">A consulta ao catálogo é livre. A conta de acesso é fornecida pelo responsável pelo projeto.</p></div>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Excluir jogo | The Witcher{% endblock %}
+{% block content %}
+<div class="form-shell narrow"><p class="eyebrow">GERENCIAR CATÁLOGO</p><h1>Excluir jogo?</h1><div class="panel"><p>Você está prestes a excluir <strong>{{ jogo.titulo }}</strong>.</p><p class="muted">O jogo será removido do catálogo. Esta ação não pode ser desfeita pela interface.</p><form method="post">{% csrf_token %}<div class="d-flex flex-wrap gap-2"><button class="btn btn-danger" type="submit">Confirmar exclusão</button><a class="btn btn-outline-light" href="{{ jogo.get_absolute_url }}">Cancelar</a></div></form></div></div>
+{% endblock %}
